@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhishek Singh Rathore - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111111;
+            color: #A3A3A3;
+            cursor: none;
+        }
+        #cursor-glow {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: rgba(179, 226, 90, 0.1);
+            filter: blur(100px);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: -1;
+            transition: width 0.3s ease, height 0.3s ease;
+        }
+        .section-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .section-fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .accent-green { color: #B3E25A; }
+        .bg-accent-green { background-color: #B3E25A; }
+        .card-bg { background-color: #191919; }
+        .border-card { border: 1px solid #262626; }
+        .nav-link { transition: color 0.3s ease; }
+        .nav-link:hover { color: #FFFFFF; }
+        .btn-primary { transition: all 0.3s ease; }
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(179, 226, 90, 0.4);
+        }
+        .project-card img { transition: transform 0.4s ease; }
+        .project-card:hover img { transform: scale(1.05); }
+        
+        /* Headline Animation */
+        .animated-char {
+            display: inline-block;
+            opacity: 0;
+            animation: fadeInChar 0.5s forwards;
+        }
+        @keyframes fadeInChar {
+            to { opacity: 1; }
+        }
+
+        /* New Skill Item Hover Effect */
+        .skill-item {
+            transition: transform 0.3s ease;
+        }
+        .skill-item:hover {
+            transform: translateY(-5px);
+        }
+        .skill-item:hover h3 {
+            color: #B3E25A;
+        }
+    </style>
+</head>
+<body class="bg-[#111111]">
+
+    <div id="cursor-glow"></div>
+
+    <!-- Header & Navigation -->
+    <header id="header" class="bg-[#111111]/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 border-b border-[#262626]">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div></div> <!-- Empty div for spacing -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="nav-link text-sm">About</a>
+                    <a href="#skills" class="nav-link text-sm">Skills</a>
+                    <a href="#projects" class="nav-link text-sm">Projects</a>
+                </nav>
+                <a href="#contact" class="hidden md:inline-block bg-accent-green text-black font-bold px-5 py-2 rounded-lg text-sm btn-primary">Let's Talk</a>
+                <button id="mobile-menu-button" class="md:hidden text-white">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#191919]">
+             <a href="#about" class="block py-2 px-6 text-sm nav-link">About</a>
+             <a href="#skills" class="block py-2 px-6 text-sm nav-link">Skills</a>
+             <a href="#projects" class="block py-2 px-6 text-sm nav-link">Projects</a>
+             <a href="#contact" class="block py-2 px-6 text-sm nav-link">Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6">
+        <!-- Home Section -->
+        <section id="home" class="min-h-screen flex items-center pt-16">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-center md:text-left">
+                    <h1 id="main-headline" class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-2">
+                        Abhishek Singh Rathore
+                    </h1>
+                    <p class="text-lg accent-green font-semibold mb-4 text-center md:text-left">(Cyber Security Specialist & Web Developer)</p>
+                    <p class="text-lg max-w-lg mx-auto md:mx-0 mb-8">
+                        A final-year Computer Science student building secure and user-friendly web applications. Based in Kanpur, India.
+                    </p>
+                    <div class="flex justify-center md:justify-start items-center gap-4">
+                        <a href="#contact" class="bg-accent-green text-black font-bold px-8 py-3 rounded-lg btn-primary">Contact Me</a>
+                        <a href="https://www.linkedin.com/in/abhishek-singh-rathore-5567b331a" target="_blank" class="text-white p-3 rounded-full bg-[#262626] hover:bg-accent-green hover:text-black transition-colors">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://github.com/abhisheksinghrathore-bit" target="_blank" class="text-white p-3 rounded-full bg-[#262626] hover:bg-accent-green hover:text-black transition-colors">
+                            <i data-lucide="github" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden md:block" data-tilt data-tilt-glare data-tilt-max-glare="0.1">
+                     <img src="https://placehold.co/500x500/191919/B3E25A?text=A.S.R" alt="Abhishek Singh Rathore" class="rounded-full w-full max-w-md mx-auto">
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 md:py-32 section-fade-in">
+            <div class="text-center">
+                <p class="accent-green font-semibold mb-2">About Me</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">A Passion for Security and Development</h2>
+                <p class="text-base leading-relaxed max-w-3xl mx-auto">
+                    I am a passionate and driven final-year Computer Science and Engineering student specializing in Cyber Security. With a strong foundation in software engineering, web development, and database management, I am adept at building secure, scalable, and user-friendly applications while keeping security at the forefront. Proficient in both frontend and backend development, I am always eager to learn, adapt, and apply my skills to real-world projects that make a meaningful impact.
+                </p>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 md:py-32 section-fade-in">
+            <div class="text-center">
+                <p class="accent-green font-semibold mb-2">My Expertise</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-12">Technical Skills</h2>
+            </div>
+            <div class="card-bg border-card rounded-lg p-8 md:p-12" data-tilt data-tilt-glare data-tilt-max-glare="0.1">
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
+                    <div class="skill-item">
+                        <h3 class="text-lg font-bold text-white mb-2 transition-colors">Languages</h3>
+                        <p>C/C++, Python, SQL</p>
+                    </div>
+                    <div class="skill-item">
+                        <h3 class="text-lg font-bold text-white mb-2 transition-colors">Frontend</h3>
+                        <p>HTML, CSS, JavaScript, React.js</p>
+                    </div>
+                    <div class="skill-item">
+                        <h3 class="text-lg font-bold text-white mb-2 transition-colors">Backend</h3>
+                        <p>Node.js, Express.js, Next.js</p>
+                    </div>
+                    <div class="skill-item">
+                        <h3 class="text-lg font-bold text-white mb-2 transition-colors">Databases</h3>
+                        <p>MySQL, MongoDB</p>
+                    </div>
+                    <div class="skill-item">
+                        <h3 class="text-lg font-bold text-white mb-2 transition-colors">Core Skills</h3>
+                        <p>Data Structures, Algorithms, DBMS</p>
+                    </div>
+                    <div class="skill-item">
+                        <h3 class="text-lg font-bold text-white mb-2 transition-colors">Tools</h3>
+                        <p>GitHub, VS Code</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 md:py-32 section-fade-in">
+            <div class="text-center">
+                <p class="accent-green font-semibold mb-2">My Work</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-12">Featured Projects</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="card-bg border-card rounded-lg overflow-hidden group project-card" data-tilt>
+                    <div class="relative">
+                        <img src="https://placehold.co/600x400/191919/B3E25A?text=Telly+Beans" alt="Telly Beans Project" class="w-full h-64 object-cover">
+                        <div class="absolute inset-0 bg-black/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <a href="#" class="text-white font-bold border-2 border-white px-4 py-2 rounded-lg hover:bg-white hover:text-black transition-colors">View Project</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Telly Beans</h3>
+                        <p class="text-sm mb-4">A full-stack food ordering platform with real-time tracking. Optimized order processing by 40%.</p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="bg-[#262626] px-2 py-1 rounded">React.js</span>
+                            <span class="bg-[#262626] px-2 py-1 rounded">Node.js</span>
+                            <span class="bg-[#262626] px-2 py-1 rounded">MongoDB</span>
+                            <span class="bg-[#262626] px-2 py-1 rounded">Express.js</span>
+                            <span class="bg-[#262626] px-2 py-1 rounded">Tailwind CSS</span>
+                        </div>
+                    </div>
+                </div>
+                 <div class="card-bg border-card rounded-lg overflow-hidden group project-card" data-tilt>
+                    <div class="relative">
+                        <img src="https://placehold.co/600x400/191919/B3E25A?text=Park+Here" alt="Park Here Project" class="w-full h-64 object-cover">
+                        <div class="absolute inset-0 bg-black/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <a href="#" class="text-white font-bold border-2 border-white px-4 py-2 rounded-lg hover:bg-white hover:text-black transition-colors">View Project</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Park Here</h3>
+                        <p class="text-sm mb-4">A web-based parking management solution to reduce urban parking congestion by 30%.</p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="bg-[#262626] px-2 py-1 rounded">HTML</span>
+                            <span class="bg-[#262626] px-2 py-1 rounded">CSS</span>
+                            <span class="bg-[#262626] px-2 py-1 rounded">JavaScript</span>
+                            <span class="bg-[#262626] px-2 py-1 rounded">Node.js</span>
+                            <span class="bg-[#262626] px-2 py-1 rounded">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 md:py-32 text-center section-fade-in">
+            <div class="card-bg border-card rounded-lg p-8 md:p-16" data-tilt>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Let's build something together</h2>
+                <p class="max-w-xl mx-auto mb-8">
+                    I'm open to new opportunities and collaborations. Feel free to reach out via email.
+                </p>
+                <a href="mailto:abhisheksinghrathore719@gmail.com" class="bg-accent-green text-black font-bold px-8 py-3 rounded-lg btn-primary inline-block">
+                    abhisheksinghrathore719@gmail.com
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-[#262626] mt-20">
+        <div class="container mx-auto px-6 py-6 text-center text-sm">
+            <p>&copy; 2025 Abhishek Singh Rathore. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Section fade-in animation
+        const sections = document.querySelectorAll('.section-fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        sections.forEach(section => observer.observe(section));
+
+        // Mouse follower glow effect
+        const cursorGlow = document.getElementById('cursor-glow');
+        window.addEventListener('mousemove', (e) => {
+            cursorGlow.style.left = `${e.clientX}px`;
+            cursorGlow.style.top = `${e.clientY}px`;
+        });
+        
+        // Headline animation
+        const headline = document.getElementById('main-headline');
+        const text = headline.textContent.trim();
+        headline.innerHTML = '';
+        let charCount = 0;
+
+        text.split(' ').forEach((word, wordIndex, wordsArray) => {
+            const wordWrapper = document.createElement('span');
+            wordWrapper.style.whiteSpace = 'nowrap'; // Prevents the word from breaking
+
+            word.split('').forEach((char) => {
+                const span = document.createElement('span');
+                span.className = 'animated-char';
+                span.textContent = char;
+                span.style.animationDelay = `${charCount * 0.05}s`;
+                wordWrapper.appendChild(span);
+                charCount++;
+            });
+            headline.appendChild(wordWrapper);
+
+            if (wordIndex < wordsArray.length - 1) {
+                const space = document.createElement('span');
+                space.innerHTML = '&nbsp;';
+                headline.appendChild(space);
+                // We don't increment charCount for the space to make words appear closer together
+            }
+        });
+
+
+        // Vanilla Tilt.js Initialization
+        VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+            max: 15,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.2,
+        });
+    </script>
+</body>
+</html>
